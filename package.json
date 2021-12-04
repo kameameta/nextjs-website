@@ -9,7 +9,8 @@
     "type-check": "tsc --noEmit",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0",
     "stylelint": "stylelint '**/*.css'",
-    "lint": "npm run eslint && npm run stylelint && npm run type-check"
+    "prettier": "prettier --check **/*.{js,ts,tsx,css}",
+    "lint": "npm run prettier && npm run eslint && npm run stylelint && npm run type-check"
   },
   "dependencies": {
     "next": "11.1.2",
@@ -23,14 +24,13 @@
     "@typescript-eslint/eslint-plugin": "^4.32.0",
     "@typescript-eslint/parser": "^4.32.0",
     "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.0",
     "eslint-config-next": "^11.1.2",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.5.0",
     "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^22.0.0",
     "typescript": "^4.4.3"
   }

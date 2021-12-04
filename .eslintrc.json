@@ -1,54 +1,49 @@
 {
+    "root": true,
     "env": {
         "browser": true,
-        "es2020": true
+        "jest": true,
+        "node": true
     },
-    "extends": [
-        "airbnb",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
+        "project": [
+            "./tsconfig.json"
+        ]
     },
     "plugins": [
         "react",
         "@typescript-eslint"
     ],
-    "rules": {
-        "no-static-element-interactions": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
-        "import/extensions": [1, {"tsx": "never"}],
-        "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": "error",
-        "max-len": ["error", { "code": 140 }]
-    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "prettier"
+    ],
     "settings": {
-        "import/resolver": {
-            "node": {
-              "extensions": [".js", ".jsx", ".ts", ".tsx"]
-            }
+        "react": {
+            "version": "detect"
         }
+    },
+    "rules": {
+        "no-console": "error",
+        "camelcase": "error",
+        "no-nested-ternary": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "quotes": ["error", "single", { "avoidEscape": true }]
     },
     "overrides": [
         {
-            "files": ["*.ts", "*.tsx"],
-            "rules": {
-                "no-unused-vars": "off",
-                "react/require-default-props": [2, {"ignoreFunctionalComponents": true}],
-                "no-shadow": "off",
-                "@typescript-eslint/no-shadow": ["error"]
-            }
-        },
-        {
-            "files": ["*.js"],
-            "rules": {
-              "@typescript-eslint/no-var-requires": "off"
+            "files": [
+                "./cypress/**/*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "./cypress/tsconfig.json"
+                ]
             }
         }
     ]
