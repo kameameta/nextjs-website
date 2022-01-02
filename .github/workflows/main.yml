@@ -1,4 +1,4 @@
-name: Lint
+name: Main
 on:
   push:
     branches:
@@ -11,11 +11,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2.4.0
-    - name: Install
-      run: npm install
-    - name: Run eslint
+    - name: install
+      run: npm ci
+    - name: prettier
+      run: npm run prettier
+    - name: eslint
       run: npm run eslint
-    - name: Run stylelint
+    - name: stylelint
       run: npm run stylelint
-    - name: Run tsc
+    - name: tsc
       run: npm run type-check
